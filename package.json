@@ -1,0 +1,26 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "Restful API developed with Node.js, Express.js and MongoDB.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuanBalceda/todo-app.git"
+  },
+  "author": "Juan Balceda <juanbalceda@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JuanBalceda/todo-app/issues"
+  },
+  "homepage": "https://github.com/JuanBalceda/todo-app#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.7"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.3.14"
+  }
+}

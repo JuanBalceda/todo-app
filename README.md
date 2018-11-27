@@ -9,6 +9,7 @@ Restful API developed with Node.js, Express.js and MongoDB.
 ```
 
 ## Available paths
+
 Path | Method | Description 
 ----------|----------|----------
 
@@ -29,9 +30,10 @@ For replicating this demo the following software is required:
 
 ## NPM Commands (Dependencies)
 
+
 ```bash
  $ npm init
- $ npm install nodemon
+ $ npm install -D nodemon # Development dependency
  $ npm install express
  $ npm install mongoose
 ```
