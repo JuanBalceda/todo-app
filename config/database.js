@@ -1,4 +1,5 @@
-const env = require('./env') // Imports environment variables
+// Imports environment variables
+require('./env')
 
 const mongoose = require('mongoose')
 

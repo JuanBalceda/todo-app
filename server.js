@@ -1,5 +1,8 @@
-const env = require('./config/env') // Imports environment variables
-const database = require('./config/database') // Loads database configuration
+// Imports environment variables
+require('./config/env')
+
+// Loads database configuration
+require('./config/database')
 
 // Starts the app with express
 const express = require('express')
