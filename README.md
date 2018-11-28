@@ -12,7 +12,11 @@ Restful API developed with Node.js, Express.js and MongoDB.
 
 Path | Method | Description 
 ----------|----------|----------
-
+/tasks | post | Creates a new task
+/tasks | get | Retrieve all tasks
+/tasks/:id | get | Retrieve a task for a given id
+/tasks/:id | put | Updates a task for a given id
+/tasks/:id | delete | Deletes a task for a given id
 
 ## Requirements
 
@@ -24,20 +28,11 @@ For replicating this demo the following software is required:
 
 ## Local Installation Instructions
 
-1. 
-2. 
-3. 
-
-## NPM Commands (Dependencies)
-
-
-```bash
- $ npm init
- $ npm install -D nodemon # Development dependency
- $ npm install express
- $ npm install mongoose
- $ npm install multer
-```
+1. Clone the repository: `git https://github.com/JuanBalceda/todo-app.git`
+2. Install all dependencies `npm install`
+3. Configure the `/config/env.js`
+4. Start the server `node start` or `npm restart` (nodemon)
+5. Test the API with [Postman](https://www.getpostman.com/).
 
 ## MongoDB Docker commands
 
