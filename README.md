@@ -59,9 +59,6 @@ db.createUser(
     pwd: "123456",
     roles: [ 
        { role: "readWrite", db: "todo_app" }
-    ],
-    mechanisms:[  
-        "SCRAM-SHA-1"
     ]
   }
 )
