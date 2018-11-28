@@ -5,7 +5,7 @@ Restful API developed with Node.js, Express.js and MongoDB.
 ## Root endpoint
 
 ```bash
- $ curl 
+ $ curl https://git.heroku.com/jb-todo-api.git/v1
 ```
 
 ## Available paths
@@ -32,7 +32,7 @@ For replicating this demo the following software is required:
 2. Install all dependencies `npm install`
 3. Configure the `/config/env.js`
 4. Start the server `node start` or `npm restart` (nodemon)
-5. Test the API with [Postman](https://www.getpostman.com/) at http://localhost:3000 level.
+5. Test the API with [Postman](https://www.getpostman.com/).
 
 ## MongoDB Docker commands
 
