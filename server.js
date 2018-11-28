@@ -32,7 +32,11 @@ app.set('port', process.env.PORT)
   })
   .use('/v1', router)
 
-app.listen(
-  app.get('port'),
-  () => console.log(`Starting RESTful API... Listening on port: ${app.get('port')} `)
-)
+if (!module.parent) {
+  app.listen(
+    app.get('port'),
+    () => console.log(`Starting RESTful API... Listening on port: ${app.get('port')} `)
+  )
+}
+
+module.exports = app
