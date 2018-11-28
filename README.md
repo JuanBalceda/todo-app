@@ -36,6 +36,7 @@ For replicating this demo the following software is required:
  $ npm install -D nodemon # Development dependency
  $ npm install express
  $ npm install mongoose
+ $ npm install multer
 ```
 
 ## MongoDB Docker commands
