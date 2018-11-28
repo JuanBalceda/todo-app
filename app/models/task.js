@@ -8,10 +8,13 @@ const TaskSchema = new Schema({
         require: [true, 'Name is required']
     },
     who: String,
-    created: Date,
+    created: { 
+        type: Date,
+        default: Date.now
+    },
     dueDate: Date,
     done: {
-        type: boolean,
+        type: Boolean,
         default: false
     }
 });
