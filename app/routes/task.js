@@ -1,11 +1,30 @@
 // Imports Model
 const Task = require('../models/task')
 
-// Retrieve all tasks
+async function validateUser (username, taskId) {
+  let task = {}
+  try {
+    task = await Task.findById(taskId)
+    if (task.who === username) {
+      return true
+    }
+  } catch (e) {
+    return false
+  }
+  return false
+}
+
+// Retrieve all tasks of the user
 const getTasks = async (req, res) => {
+  const { user } = req
+
+  if (!user || !user.username) {
+    res.status(401).send({ message: 'Not authorized.' })
+  }
+
   let tasks = []
   try {
-    tasks = await Task.find({}).sort({ '_id': -1 })
+    tasks = await Task.find({ who: user.username }).sort({ '_id': -1 })
 
     if (!tasks || tasks.length === 0) {
       res.status(200).send({ message: 'There are no tasks.' })
@@ -19,13 +38,21 @@ const getTasks = async (req, res) => {
 
 // Retrieve a task for a given id
 const getTaskById = async (req, res) => {
+  const { user } = req
+
+  if (!user || !user.username) {
+    res.status(401).send({ message: 'Not authorized.' })
+  }
+
   let task = {}
   try {
     task = await Task.findById(req.params.id)
     if (!task) {
       res.status(200).send({ message: `There is no task with id: ${req.params.id}` })
-    } else {
+    } else if (task.who === user.username) {
       res.status(200).send({ task })
+    } else {
+      res.status(401).send({ message: 'Not authorized.' })
     }
   } catch (e) {
     if (e.message.match(/Cast to ObjectId failed/)) {
@@ -38,9 +65,19 @@ const getTaskById = async (req, res) => {
 
 // Update task for a given id
 const putTask = async (req, res) => {
-  let task = {}
+  const { user } = req
+
+  if (!user || !user.username) {
+    res.status(401).send({ message: 'Not authorized.' })
+  }
+
+  let task
   try {
-    task = await Task.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    if (await validateUser(user.username, req.params.id)) {
+      task = await Task.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    } else {
+      res.status(401).send({ message: 'Not authorized.' })
+    }
     if (!task) {
       res.status(200).send({ message: `There is no task with id: ${req.params.id}` })
     } else {
@@ -57,8 +94,15 @@ const putTask = async (req, res) => {
 
 // Creates a new task
 const postTask = async (req, res) => {
+  const { user } = req
+
+  if (!user || !user.username) {
+    res.status(401).send({ message: 'Not authorized.' })
+  }
+
   let task = new Task(req.body)
   if (task.task) {
+    task.who = user.username
     try {
       await task.save((err, data) => {
         if (err) {
@@ -76,9 +120,20 @@ const postTask = async (req, res) => {
 
 // Deletes a task for a given id
 const deleteTask = async (req, res) => {
-  let task = {}
+  const { user } = req
+
+  if (!user || !user.username) {
+    res.status(401).send({ message: 'Not authorized.' })
+  }
+
+  let task
   try {
-    task = await Task.findByIdAndRemove(req.params.id, req.body)
+    if (await validateUser(user.username, req.params.id)) {
+      task = await Task.findByIdAndRemove(req.params.id, req.body)
+    } else {
+      res.status(401).send({ message: 'Not authorized.' })
+    }
+
     if (!task) {
       res.status(200).send({ message: `There is no task with id: ${req.params.id}` })
     } else {

@@ -6,3 +6,9 @@ if (process.env.NODE_ENV === 'dev') {
 } else {
   process.env.URL_DB = 'mongodb://todo-db:rh2019@ds119024.mlab.com:19024/jb-todo'
 }
+
+module.exports = {
+  auth: {
+    secret: process.env.SECRET || 'awesome'
+  }
+}
