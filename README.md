@@ -4,9 +4,8 @@ Restful API developed with Node.js, Express.js and MongoDB.
 
 ## Root endpoint
 
-```bash
- $ curl https://git.heroku.com/jb-todo-api.git/v1
-```
+https://jb-todo-api.herokuapp.com/v1
+
 
 ## Available paths
 
@@ -28,7 +27,7 @@ For replicating this demo the following software is required:
 
 ## Local Installation Instructions
 
-1. Clone the repository: `git https://github.com/JuanBalceda/todo-app.git`
+1. Clone the repository: `git clone https://github.com/JuanBalceda/todo-app.git`
 2. Install all dependencies `npm install`
 3. Configure the `/config/env.js`
 4. Start the server `node start` or `npm restart` (nodemon)
