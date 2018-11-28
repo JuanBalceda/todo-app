@@ -5,7 +5,7 @@ Restful API developed with Node.js, Express.js and MongoDB.
 ## Root endpoint
 
 ```bash
- $ curl https://git.heroku.com/jb-todo-api.git/v1
+ $ curl https://jb-todo-api.herokuapp.com/v1
 ```
 
 ## Available paths
