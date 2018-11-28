@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "restart": "nodemon server.js"
+    "restart": "nodemon server.js",
+    "lint": "standard"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,8 @@
   },
   "homepage": "https://github.com/JuanBalceda/todo-app#readme",
   "devDependencies": {
-    "nodemon": "^1.18.7"
+    "nodemon": "^1.18.7",
+    "standard": "^12.0.1"
   },
   "dependencies": {
     "express": "^4.16.4",

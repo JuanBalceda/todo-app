@@ -6,7 +6,6 @@ Restful API developed with Node.js, Express.js and MongoDB.
 
 https://jb-todo-api.herokuapp.com/v1
 
-
 ## Available paths
 
 Path | Method | Description 
