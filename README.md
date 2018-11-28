@@ -1,6 +1,6 @@
 # Todo-App
 
-Restful API developed with Node.js, Express.js and MongoDB.
+Restful API developed with Node.js, Express.js and MongoDB and secured with JSON Web Token.
 
 ## Root endpoint
 
@@ -24,13 +24,42 @@ For replicating this demo the following software is required:
 * Download and install [MongoDB](https://www.mongodb.com/). For this demo a [Docker container](#mongodb-docker-commands) was used.
 * (Optional) Download and install [Postman](https://www.getpostman.com/). Recommended for testing purposes.
 
-## Local Installation Instructions
+## Getting Started
 
 1. Clone the repository: `git clone https://github.com/JuanBalceda/todo-app.git`
 2. Install all dependencies `npm install`
 3. Configure the `/config/env.js`
 4. Start the server `node start` or `npm restart` (nodemon)
 5. Test the API with [Postman](https://www.getpostman.com/).
+
+## How it works
+
+The endpoint will show all tasks that belong to the username specified on the jwt payload.
+
+Example payload data:
+
+```json
+{
+  "username": "juanbalceda",
+  "iat": 1543438543
+}
+```
+
+
+`https://jb-todo-api.herokuapp.com/v1/tasks`
+
+```json
+{
+  "done":false,
+  "_id":"5bfe89bf4d5f760016e4723a",
+  "task":"Test API through UI",
+  "who":"Juan Balceda",
+  "dueDate":"2018-11-29T00:00:00.000Z",
+  "created":"2018-11-28T12:27:43.938Z",
+  "__v":0
+}
+```
+For more information about how jwt works, visit: https://jwt.io/
 
 ## MongoDB Docker commands
 
