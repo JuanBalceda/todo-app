@@ -19,6 +19,7 @@ api.get('/', async (req, res) => {
 api.post('/tasks', auth(config.auth), task.postTask)
 api.get('/tasks', auth(config.auth), task.getTasks)
 api.get('/tasks/:id', auth(config.auth), task.getTaskById)
+api.get('/tasks/filter/:filter', auth(config.auth), task.getTaskByFilter)
 api.put('/tasks/:id', auth(config.auth), task.putTask)
 api.delete('/tasks/:id', auth(config.auth), task.deleteTask)
 

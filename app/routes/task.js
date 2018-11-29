@@ -148,10 +148,43 @@ const deleteTask = async (req, res) => {
   }
 }
 
+const getTaskByFilter = async (req, res) => {
+  const { user } = req
+
+  if (!user || !user.username) {
+    res.status(401).send({ message: 'Not authorized.' })
+  }
+
+  let tasks
+  let result
+  try {
+    tasks = await Task
+      .find({ task: { $regex: req.params.filter, $options: 'i' } })
+      .sort({ 'task': -1 })
+    if (!tasks || tasks.length === 0) {
+      res.status(200).send({ message: 'There are no tasks.' })
+    } else {
+      result = tasks.map(t => {
+        if (t.who === user.username) {
+          return t
+        }
+      })
+      if (!result[0]) {
+        res.status(200).send({ message: 'There are no tasks.' })
+      } else {
+        res.status(200).send({ result })
+      }
+    }
+  } catch (e) {
+    res.status(500).send({ message: `Server error: ${e.message}` })
+  }
+}
+
 module.exports = {
   getTasks,
   getTaskById,
   putTask,
   postTask,
-  deleteTask
+  deleteTask,
+  getTaskByFilter
 }
