@@ -103,6 +103,8 @@ const postTask = async (req, res) => {
   let task = new Task(req.body)
   if (task.task) {
     task.who = user.username
+    task.created = null
+    task.done = false
     try {
       await task.save((err, data) => {
         if (err) {
@@ -148,6 +150,7 @@ const deleteTask = async (req, res) => {
   }
 }
 
+// Retrieve all tasks for a given keyword
 const getTaskByFilter = async (req, res) => {
   const { user } = req
 
