@@ -11,7 +11,33 @@ const task = require('./routes/task')
 // Root Endpoint
 api.get('/', async (req, res) => {
   await res.status(200).send({
-    message: 'TODO RESTful API working OK'
+    message: 'TODO RESTful API working OK',
+    allowed_methods: {
+      'post': {
+        path: '/tasks',
+        description: 'Creates a new task'
+      }, 'get':
+      {
+        0: {
+          path: '/tasks',
+          description: 'Retrieve all tasks'
+        },
+        1: {
+          path: '/tasks/:id',
+          description: 'Retrieve a task for a given id'
+        },
+        2: {
+          path: '/tasks/filter/:filter',
+          description: 'Retrieve all tasks for a given keyword'
+        }
+      }, 'put': {
+        path: '/tasks/:id',
+        description: 'Updates a task for a given id'
+      }, 'delete': {
+        path: '/tasks/:id',
+        description: 'Deletes a task for a given id'
+      }
+    }
   })
 })
 

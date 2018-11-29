@@ -13,6 +13,7 @@ Path | Method | Description
 /tasks | post | Creates a new task
 /tasks | get | Retrieve all tasks
 /tasks/:id | get | Retrieve a task for a given id
+/tasks/filter/:filter | get |  Retrieve all tasks for a given keyword
 /tasks/:id | put | Updates a task for a given id
 /tasks/:id | delete | Deletes a task for a given id
 
@@ -34,7 +35,7 @@ For replicating this demo the following software is required:
 
 ## How it works
 
-The endpoint will show all tasks that belong to the username specified on the jwt payload.
+The chosen endpoint will perform certain action if the username is specified on the jwt payload.
 
 Example payload data:
 
