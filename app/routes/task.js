@@ -176,7 +176,7 @@ const getTaskByFilter = async (req, res) => {
           return t
         }
       })
-      if (!result[0]) {
+      if (!result) {
         res.status(200).send({ message: 'There are no tasks.' })
       } else {
         res.status(200).send({ result })
