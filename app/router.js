@@ -16,7 +16,8 @@ api.get('/', async (req, res) => {
       'post': {
         path: '/tasks',
         description: 'Creates a new task'
-      }, 'get':
+      },
+      'get':
       {
         0: {
           path: '/tasks',
@@ -30,10 +31,12 @@ api.get('/', async (req, res) => {
           path: '/tasks/filter/:filter',
           description: 'Retrieve all tasks for a given keyword'
         }
-      }, 'put': {
+      },
+      'put': {
         path: '/tasks/:id',
         description: 'Updates a task for a given id'
-      }, 'delete': {
+      },
+      'delete': {
         path: '/tasks/:id',
         description: 'Deletes a task for a given id'
       }

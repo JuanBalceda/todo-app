@@ -72,7 +72,11 @@ const putTask = async (req, res) => {
   }
 
   let task
+
   try {
+    delete req.body.who
+    delete req.body.created
+
     if (await validateUser(user.username, req.params.id)) {
       task = await Task.findByIdAndUpdate(req.params.id, req.body, { new: true })
     } else {
