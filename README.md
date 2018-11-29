@@ -53,7 +53,7 @@ Example payload data:
   "done":false,
   "_id":"5bfe89bf4d5f760016e4723a",
   "task":"Test API through UI",
-  "who":"Juan Balceda",
+  "who":"juanbalceda",
   "dueDate":"2018-11-29T00:00:00.000Z",
   "created":"2018-11-28T12:27:43.938Z",
   "__v":0
